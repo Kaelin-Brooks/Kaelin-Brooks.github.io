@@ -1,0 +1,44 @@
+#!/bin/bash
+
+echo "The current user is a:" $USER
+echo "Greetings" $USER "!" #Give a greeting to the user
+sleep 1
+read -p "What is your name: " variable1 #Prompt the user for their name
+sleep 1
+echo $variable1 "is the current" $USER "user logged in." 
+echo "Greetings" $USER $variable1 "! This is an interactive script, your responses will determine what happens next." #Repeat the greeting with the user's name
+sleep 1
+echo "Today's date is: " $(date) #Today's date
+sleep 1
+read -p "Please describe today's weather - either sunny or rainy: " weather #Weather prompt begins
+if [ $weather = "rainy" ]
+then 
+		echo "It's raining. Stay indoors, let's write bash scripts."
+elif [ $weather = "sunny" ]
+then 
+		echo "It's sunny. Go outside and have fun!"
+fi #Weather prompt ends
+sleep 1
+read -p "Please enter a number: " num1	#Calculation - addition begins
+sleep 1
+read -p "Please enter another number: " num2
+echo "You have entered" $num1 "and" $num2
+sum=`expr $num1 + $num2`
+sleep 1
+echo  "This is the sum of your numbers: " $sum #Calculation - addition ends
+sleep 1
+echo "Keep viewing for Bonus Assignment!"
+sleep 1
+start_date=$(date +%s) #Extra Credit begins
+echo "Today's date is:" $(date)
+end_date="2025-12-25"
+sleep 1
+echo "Christmas is on: Thursday" $end_date
+future_date=$(date -d $end_date +%s)
+dsdays=$((future_date - start_date))
+ddays=$((dsdays / 86400))
+sleep 1
+echo "Starting the countdown to Christmas!!......."
+sleep 1
+echo "Christmas is in" $ddays "days"	#Extra Credit ends
+echo "Done!"
